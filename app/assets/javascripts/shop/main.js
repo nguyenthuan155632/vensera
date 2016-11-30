@@ -1,15 +1,16 @@
 /*price range*/
 
- $('#sl2').slider();
-
-	var RGBChange = function() {
-	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
+ 	
 		
 /*scroll to top*/
 
 $(document).ready(function(){
 	$(function () {
+		$('#sl2').slider();
+
+		var RGBChange = function() {
+		  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+		};
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
 	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
