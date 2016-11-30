@@ -30,11 +30,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem "slim-rails"	
+gem "slim-rails"
+gem 'ransack'
+gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-ui-rails'
+gem 'inum'
+gem 'kaminari'
+gem 'omniauth'	
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'bullet'
 end
 
 group :development do

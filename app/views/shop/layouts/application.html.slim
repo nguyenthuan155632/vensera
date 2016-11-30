@@ -1,0 +1,272 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    title Home | E-Shopper
+    = stylesheet_link_tag 'shop/application', media: 'all'
+    = csrf_meta_tags
+  body
+    header#header
+      .header_top
+        .container
+          .row
+            .col-sm-6
+              .contactinfo
+                ul.nav.nav-pills
+                  li
+                    a href="#" 
+                      i.fa.fa-phone
+                      | +2 95 01 88 821
+                  li
+                    a href="#" 
+                      i.fa.fa-envelope
+                      | info@domain.com
+            .col-sm-6
+              .social-icons.pull-right
+                ul.nav.navbar-nav
+                  li
+                    a href="#" 
+                      i.fa.fa-facebook
+                  li
+                    a href="#" 
+                      i.fa.fa-twitter
+                  li
+                    a href="#" 
+                      i.fa.fa-linkedin
+                  li
+                    a href="#" 
+                      i.fa.fa-dribbble
+                  li
+                    a href="#" 
+                      i.fa.fa-google-plus
+      .header-middle
+        .container
+          .row
+            .col-sm-4
+              .logo.pull-left
+                a href="index.html" 
+                  img alt="" src="images/home/logo.png" /
+              .btn-group.pull-right
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle.usa data-toggle="dropdown" type="button" 
+                    | USA
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a href="#"  Canada
+                    li
+                      a href="#"  UK
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle.usa data-toggle="dropdown" type="button" 
+                    | DOLLAR
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a href="#"  Canadian Dollar
+                    li
+                      a href="#"  Pound
+            .col-sm-8
+              .shop-menu.pull-right
+                ul.nav.navbar-nav
+                  li
+                    a href="#" 
+                      i.fa.fa-user
+                      | Account
+                  li
+                    a href="#" 
+                      i.fa.fa-star
+                      | Wishlist
+                  li
+                    a href="checkout.html" 
+                      i.fa.fa-crosshairs
+                      | Checkout
+                  li
+                    a href="cart.html" 
+                      i.fa.fa-shopping-cart
+                      | Cart
+                  li
+                    a href="login.html" 
+                      i.fa.fa-lock
+                      | Login
+      .header-bottom
+        /! header-bottom
+        .container
+          .row
+            .col-sm-9
+              .navbar-header
+                button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              .mainmenu.pull-left
+                ul.nav.navbar-nav.collapse.navbar-collapse
+                  li
+                    a.active href="index.html"  Home
+                  li.dropdown
+                    a href="#" 
+                      | Shop
+                      i.fa.fa-angle-down
+                    ul.sub-menu role="menu" 
+                      li
+                        a href="shop.html"  Products
+                      li
+                        a href="product-details.html"  Product Details
+                      li
+                        a href="checkout.html"  Checkout
+                      li
+                        a href="cart.html"  Cart
+                      li
+                        a href="login.html"  Login
+                  li.dropdown
+                    a href="#" 
+                      | Blog
+                      i.fa.fa-angle-down
+                    ul.sub-menu role="menu" 
+                      li
+                        a href="blog.html"  Blog List
+                      li
+                        a href="blog-single.html"  Blog Single
+                  li
+                    a href="404.html"  404
+                  li
+                    a href="contact-us.html"  Contact
+            .col-sm-3
+              .search_box.pull-right
+                input placeholder="Search" type="text" /
+
+    = yield
+
+    footer#footer
+      .footer-top
+        .container
+          .row
+            .col-sm-2
+              .companyinfo
+                h2
+                  span> e
+                  | \-shopper
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor
+            .col-sm-7
+              .col-sm-3
+                .video-gallery.text-center
+                  a href="#" 
+                  .iframe-img
+                    img alt="" src="images/home/iframe1.png" /
+                  .overlay-icon
+                    i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a href="#" 
+                  .iframe-img
+                    img alt="" src="images/home/iframe2.png" /
+                  .overlay-icon
+                    i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a href="#" 
+                  .iframe-img
+                    img alt="" src="images/home/iframe3.png" /
+                  .overlay-icon
+                    i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a href="#" 
+                  .iframe-img
+                    img alt="" src="images/home/iframe4.png" /
+                  .overlay-icon
+                    i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+            .col-sm-3
+              .address
+                img alt="" src="images/home/map.png" /
+                p 505 S Atlantic Ave Virginia Beach, VA(Virginia)
+      .footer-widget
+        .container
+          .row
+            .col-sm-2
+              .single-widget
+                h2 Service
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a href="#"  Online Help
+                  li
+                    a href="#"  Contact Us
+                  li
+                    a href="#"  Order Status
+                  li
+                    a href="#"  Change Location
+                  li
+                    a href="#"  FAQ’s
+            .col-sm-2
+              .single-widget
+                h2 Quock Shop
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a href="#"  T-Shirt
+                  li
+                    a href="#"  Mens
+                  li
+                    a href="#"  Womens
+                  li
+                    a href="#"  Gift Cards
+                  li
+                    a href="#"  Shoes
+            .col-sm-2
+              .single-widget
+                h2 Policies
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a href="#"  Terms of Use
+                  li
+                    a href="#"  Privecy Policy
+                  li
+                    a href="#"  Refund Policy
+                  li
+                    a href="#"  Billing System
+                  li
+                    a href="#"  Ticket System
+            .col-sm-2
+              .single-widget
+                h2 About Shopper
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a href="#"  Company Information
+                  li
+                    a href="#"  Careers
+                  li
+                    a href="#"  Store Location
+                  li
+                    a href="#"  Affillate Program
+                  li
+                    a href="#"  Copyright
+            .col-sm-3.col-sm-offset-1
+              .single-widget
+                h2 About Shopper
+                form.searchform action="#" 
+                  input placeholder=("Your email address") type="text" /
+                  button.btn.btn-default type="submit" 
+                    i.fa.fa-arrow-circle-o-right
+                  p
+                    | Get the most recent updates from
+                      br/
+                    | our site and be updated your self...
+      .footer-bottom
+        .container
+          .row
+            p.pull-left Copyright © 2013 E-SHOPPER Inc. All rights reserved.
+            p.pull-right
+              | Designed by
+              span
+                a href="http://www.themeum.com" target="_blank"  Themeum
+    = javascript_include_tag 'shop/application'
