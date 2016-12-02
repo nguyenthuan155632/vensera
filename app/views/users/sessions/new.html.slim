@@ -6,14 +6,8 @@ section#form
           h2 Login to your account
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             - flash.each do |type, msg|
-              - if type == "notice"
-                .alert.alert-success
-                  = msg
-              - elsif type == "alert"
+              - if type == "alert"
                 .alert.alert-danger
-                  = msg
-              - else
-                .alert.alert-info
                   = msg
             = f.email_field :email, autofocus: true, placeholder: "Email Address"
             = f.password_field :password, autocomplete: "off", placeholder: "Password"
