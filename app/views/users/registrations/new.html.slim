@@ -1,0 +1,18 @@
+section#form
+  .container
+    .row
+      .col-sm-12
+        .signup-form
+          h2 New User Signup!
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            = f.email_field :email, autofocus: true, placeholder: "Email Address"
+            = f.text_field :name, placeholder: "Full Name"
+            = f.text_field :birthdate, placeholder: "Birth Date"
+            = f.text_field :address, placeholder: "Address"
+            = f.text_field :phone, placeholder: "Phone"
+            = f.text_field :is_male, placeholder: "Sex"
+            = f.password_field :password, autocomplete: "off", placeholder: "Password"
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
+            = f.submit "Sign up", class: "button btn btn-default"
+        = render "users/shared/links"

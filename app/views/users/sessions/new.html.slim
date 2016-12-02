@@ -1,0 +1,25 @@
+section#form
+  .container
+    .row
+      .col-sm-12
+        .login-form
+          h2 Login to your account
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            - flash.each do |type, msg|
+              - if type == "notice"
+                .alert.alert-success
+                  = msg
+              - elsif type == "alert"
+                .alert.alert-danger
+                  = msg
+              - else
+                .alert.alert-info
+                  = msg
+            = f.email_field :email, autofocus: true, placeholder: "Email Address"
+            = f.password_field :password, autocomplete: "off", placeholder: "Password"
+            - if devise_mapping.rememberable?
+              span
+                = f.check_box :remember_me, class: "checkbox"
+                = f.label :remember_me
+            = f.submit "Login", class: "button btn btn-default"
+        = render "users/shared/links"
