@@ -16,5 +16,5 @@
 // require jquery-ui/datepicker
 // require jquery-ui/datepicker-pt-BR
 //  require turbolinks
-//= require operator/bootstrap.min
+//= require operators/bootstrap.min
 //= require_tree .

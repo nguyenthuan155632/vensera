@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   	resources :products
   end
 
+  namespace :operators do
+  	root to: 'home#index'
+  end
+
   get 'contact' => 'shop/contact#index'
 
   root to: 'shop/home#index'
