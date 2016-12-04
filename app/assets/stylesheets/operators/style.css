@@ -1,0 +1,23 @@
+.nested-fields {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.add-image-link {
+	text-align: center;
+    background-color: #4d738e;
+    padding: 10px;
+    display: inline;
+}
+
+.add-image-link a {
+	color: #fff;
+}
+
+.remove_fields {
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 3px 7px;
+    background-color: #fb606f;
+    color: #fff;
+}

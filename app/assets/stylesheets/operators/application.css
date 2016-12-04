@@ -13,6 +13,8 @@
  * require jquery-ui
  * require jquery-ui/datepicker
  *= require operators/bootstrap.min
+ *= require dropzone/basic
+ *= require dropzone/dropzone
  *= require froala_editor.min.css
  *= require froala_style.min.css
  *= require font-awesome

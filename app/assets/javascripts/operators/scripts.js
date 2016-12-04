@@ -47,4 +47,11 @@ $(document).ready(function() {
 	  		height: 400
 	  	});
 	});
+
+	// Dropzone.options.myAwesomeDropzone = {
+	// 	paramName: "shop_post[thumbnail]", // The name that will be used to transfer the file
+	// 	maxFilesize: 20,
+ //    	addRemoveLinks: true,
+	// 	acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+	// };
 });

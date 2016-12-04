@@ -15,7 +15,7 @@
         .clearfix
       .x_content
         br/
-        = form_for @post, :url => operators_posts_path, :method => "post", :html => { :class => "form-horizontal form-label-left", :id => "demo-form2" } do |f|
+        = form_for @post, :url => operators_posts_path, :method => "post", :html => { :multipart => true, :class => "form-horizontal form-label-left" } do |f|
           - if @post.errors.any?
             ul
               - @post.errors.full_messages.each do |msg|
@@ -41,7 +41,7 @@
               | Thumbnail
               span.required *
             .col-md-9.col-sm-9.col-xs-12
-              = f.file_field :thumbnail, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "thumbnail"
+              = f.file_field :thumbnail, multiple: false, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "thumbnail"
           .form-group
             label.control-label.col-md-2.col-sm-2.col-xs-12 for="content" 
               | Content
@@ -65,12 +65,22 @@
             .col-md-9.col-sm-9.col-xs-12
               = f.collection_select :shop_category_id, Shop::Category.where(:category_type => "post"), :id, :category_name, { prompt: true }, { :class => "form-control col-md-7 col-xs-12", :id => "shop_category_id" }
           .form-group
-            label.control-label.col-md-2.col-sm-2.col-xs-12 for="keywords" 
-              | Keywords
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="keyword" 
+              | Keyword
               span.required
             .col-md-9.col-sm-9.col-xs-12
-              = f.fields_for :keywords do |k|
+              = f.fields_for :keyword do |k|
                 = k.text_field :key_string, :class => "form-control col-md-7 col-xs-12", :id => "key_string"
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="images" 
+              | Images
+              span.required
+            .col-md-9.col-sm-9.col-xs-12
+              = f.fields_for :images do |k|
+                = render 'operators/posts/image_fields', f: k
+              .add-image-link
+                = link_to_add_association 'Add a Image', f, :images
+                / = k.file_field :img_url, multiple: true, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "img_url"
           .ln_solid
           .form-group
             .col-md-9.col-sm-9.col-xs-12.col-md-offset-5

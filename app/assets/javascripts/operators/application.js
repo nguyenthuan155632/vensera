@@ -17,6 +17,8 @@
 // require jquery-ui/datepicker-pt-BR
 // require turbolinks
 //= require operators/bootstrap.min
+//= require dropzone
+//= require cocoon
 //= require froala_editor.min.js
 //= require plugins/align.min.js
 //= require plugins/char_counter.min.js

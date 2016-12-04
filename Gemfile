@@ -41,6 +41,9 @@ gem 'bootstrap-kaminari-views'
 gem 'omniauth'	
 gem 'friendly_id'
 gem "wysiwyg-rails"
+gem 'dropzonejs-rails'
+gem "carrierwave"
+gem "cocoon"
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.9.0'
