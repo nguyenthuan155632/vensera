@@ -64,6 +64,13 @@
               span.required *
             .col-md-9.col-sm-9.col-xs-12
               = f.collection_select :shop_category_id, Shop::Category.where(:category_type => "post"), :id, :category_name, { prompt: true }, { :class => "form-control col-md-7 col-xs-12", :id => "shop_category_id" }
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="keywords" 
+              | Keywords
+              span.required
+            .col-md-9.col-sm-9.col-xs-12
+              = f.fields_for :keywords do |k|
+                = k.text_field :key_string, :class => "form-control col-md-7 col-xs-12", :id => "key_string"
           .ln_solid
           .form-group
             .col-md-9.col-sm-9.col-xs-12.col-md-offset-5

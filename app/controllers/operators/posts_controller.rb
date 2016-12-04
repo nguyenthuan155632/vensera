@@ -4,6 +4,7 @@ class Operators::PostsController < Operators::BaseController
 
 	def new
 		@post = Shop::Post.new
+		@post.keywords.build
 	end
 
 	def create 
@@ -18,6 +19,6 @@ class Operators::PostsController < Operators::BaseController
 
 	private
 		def shop_post_params
-      params.require(:shop_post).permit(:title, :slug, :thumbnail, :content, :active, :shop_category_id)
+      params.require(:shop_post).permit(:title, :slug, :thumbnail, :content, :active, :shop_category_id, keywords_attributes: [:key_string, :key_id, :key_type])
     end
 end
