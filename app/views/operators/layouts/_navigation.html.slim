@@ -23,11 +23,29 @@
               span.fa.fa-chevron-down
             ul.nav.child_menu
               li
-                a href="index.html"  Dashboard
+                = link_to "Vensera", root_path
               li
-                a href="index2.html"  Dashboard2
+                = link_to "Operators", operators_root_path
+          li
+            a
+              i.fa.fa-edit
+              | Posts
+              span.fa.fa-chevron-down
+            ul.nav.child_menu
               li
-                a href="index3.html"  Dashboard3
+                = link_to "Posts", operators_posts_path
+              li
+                = link_to "New Post", operators_posts_new_path
+          li
+            a
+              i.fa.fa-archive
+              | Categories
+              span.fa.fa-chevron-down
+            ul.nav.child_menu
+              li
+                = link_to "Categories", operators_categories_path
+              li
+                = link_to "New Category", operators_categories_new_path
           li
             a
               i.fa.fa-edit

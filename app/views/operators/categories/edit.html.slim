@@ -1,0 +1,53 @@
+.row
+  .col-md-12.col-sm-12.col-xs-12
+    .x_panel
+      .x_title
+        h2
+          | Modify Category
+          small Posts & Products
+        ul.nav.navbar-right.panel_toolbox
+          li
+            a.collapse-link
+              i.fa.fa-chevron-up
+          li
+            a.close-link
+              i.fa.fa-close
+        .clearfix
+      .x_content
+        br/
+        = form_for @category, :url => operators_categories_update_path, :method => "put", :html => { :class => "form-horizontal form-label-left", :id => "demo-form2" } do |f|
+          - if @category.errors.any?
+            ul
+              - @category.errors.full_messages.each do |msg|
+                li.text-danger
+                  = msg
+          - elsif flash[:success]
+            .text-success
+              = flash[:success]
+          .form-group
+            label.control-label.col-md-3.col-sm-3.col-xs-12 for="category-name" 
+              | Name
+              span.required *
+            .col-md-6.col-sm-6.col-xs-12
+              = f.text_field :category_name, :class => "form-control col-md-7 col-xs-12", :id => "category-name"
+          .form-group
+            label.control-label.col-md-3.col-sm-3.col-xs-12 for="category-slug" 
+              | Slug
+              span.required *
+            .col-md-6.col-sm-6.col-xs-12
+              = f.text_field :category_slug, :class => "form-control col-md-7 col-xs-12", :id => "category-slug"
+          .form-group
+            label.control-label.col-md-3.col-sm-3.col-xs-12 Type
+            .col-md-6.col-sm-6.col-xs-12
+              #category-type.btn-group data-toggle="buttons" 
+                label.btn.btn-default data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" 
+                  = f.radio_button :category_type, "post"
+                  | &nbsp; Post &nbsp;
+                label.btn.btn-primary data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" 
+                  = f.radio_button :category_type, "product"
+                  | Product
+          .ln_solid
+          .form-group
+            .col-md-6.col-sm-6.col-xs-12.col-md-offset-3
+              = link_to "Cancel", operators_categories_path, class: "btn btn-primary"
+              = f.submit "Update", :class => "btn btn-success"

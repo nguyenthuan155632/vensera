@@ -1,0 +1,72 @@
+.row
+  .clearfix
+  .col-md-12.col-sm-12.col-xs-12
+    .x_panel
+      .x_title
+        h2
+          | Categories
+          small Posts & Products
+        ul.nav.navbar-right.panel_toolbox
+          li
+            a.collapse-link
+              i.fa.fa-chevron-up
+          li
+            a.close-link
+              i.fa.fa-close
+        .clearfix
+      .x_content
+        = search_form_for @q, url: operators_categories_path do |f|
+          .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+            = f.search_field :category_name_cont, class: "form-control has-feedback-left", placeholder: "Name"
+            span.fa.fa-archive.form-control-feedback.left aria-hidden="true"
+          .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+            = f.search_field :category_slug_cont, class: "form-control has-feedback-left", placeholder: "Slug"
+            span.fa.fa-archive.form-control-feedback.left aria-hidden="true"
+          .col-md-6.col-sm-6.col-xs-12.form-group
+            = f.select :category_type_eq, { "Type" => "", "Post" => "post", "Product" => "product" }, {}, { class: "form-control" }
+          .clearfix
+          .form-group
+            .col-md-12.col-sm-12.col-xs-12.text-center
+              = f.submit "Search", class: "btn btn-default"
+        p.col-sm-6
+          | Catogories for 
+          code posts & products
+        p.col-sm-6.text-right
+          = link_to "Remove selected", operators_categories_delete_selected_path, method: :post, class: "text-danger delete_selected", data: { confirm: "Are you sure?" }
+        .clearfix
+        p
+          - if flash[:success]
+            .text-success
+              = flash[:success]
+        .table-responsive
+          table.table.table-striped.jambo_table.bulk_action
+            thead
+              tr.headings
+                th
+                  input#check-all.flat type="checkbox" /
+                th.column-title Name
+                th.column-title Slug
+                th.column-title Type
+                th.column-title.no-link.last.text-right
+                  span.nobr Action
+                th.bulk-actions colspan="7" 
+                  a.antoo style=("color:#fff; font-weight:500;") 
+                    | Bulk Actions (
+                    span.action-cnt
+                    | ) 
+                    i.fa.fa-chevron-down
+            tbody
+              - @categories.each do |c|
+                tr.even.pointer
+                  td.a-center
+                    = check_box_tag "table_records", c.id, checked = false, class: "flat"
+                  td 
+                    = c.category_name
+                  td 
+                    = c.category_slug
+                  td 
+                    = c.category_type.capitalize
+                  td.last.text-right
+                    = link_to "Modify", operators_categories_edit_path(:id => c.id)
+                    = link_to " Remove", operators_categories_delete_path(:id => c.id), method: :delete, data: { confirm: "Are you sure?" }
+        = paginate @categories

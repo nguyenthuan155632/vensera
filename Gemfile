@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,7 +37,14 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-ui-rails'
 gem 'inum'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'omniauth'	
+gem 'friendly_id'
+gem "wysiwyg-rails"
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'coffee-script-source', '1.9.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
