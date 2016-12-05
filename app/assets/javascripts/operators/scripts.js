@@ -10,6 +10,10 @@ $(document).ready(function() {
 
 	update_radio_button('#shop_category_category_type_product');
 	update_radio_button('#shop_category_category_type_post');
+	update_radio_button('#shop_post_active_publish');
+	update_radio_button('#shop_post_active_pending');
+	update_radio_button('#shop_product_active_publish');
+	update_radio_button('#shop_product_active_pending');
 
 	function delete_selected(ids, url) {
     	var defer = $.Deferred(); 
@@ -48,10 +52,5 @@ $(document).ready(function() {
 	  	});
 	});
 
-	// Dropzone.options.myAwesomeDropzone = {
-	// 	paramName: "shop_post[thumbnail]", // The name that will be used to transfer the file
-	// 	maxFilesize: 20,
- //    	addRemoveLinks: true,
-	// 	acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
-	// };
+	$('.tagcloud').tagcloud();
 });

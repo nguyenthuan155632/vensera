@@ -21,3 +21,34 @@
     background-color: #fb606f;
     color: #fff;
 }
+
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #73879c;
+}
+
+.img-collection {
+    margin-top: 20px;
+}
+
+.img-collection img {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.tc-tag {
+    display: inline;
+    padding: 3px 5px;
+    margin: 0 5px 0px 0;
+    background: #2fa6d8;
+    color: #fff;
+}
+
+.tc-selected { background: #ec5f65; }

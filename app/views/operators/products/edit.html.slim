@@ -3,8 +3,8 @@
     .x_panel
       .x_title
         h2
-          | New Post
-          small Posts
+          | Modify Product
+          small Products
         ul.nav.navbar-right.panel_toolbox
           li
             a.collapse-link
@@ -15,27 +15,39 @@
         .clearfix
       .x_content
         br/
-        = form_for @post, :url => operators_posts_path, :method => "post", :html => { :multipart => true, :class => "form-horizontal form-label-left" } do |f|
-          - if @post.errors.any?
+        = form_for @product, :url => operators_products_update_path, :method => "put", :html => { :multipart => true, :class => "form-horizontal form-label-left" } do |f|
+          - if @product.errors.any?
             ul
-              - @post.errors.full_messages.each do |msg|
+              - @product.errors.full_messages.each do |msg|
                 li.text-danger
                   = msg
           - elsif flash[:success]
             .text-success
               = flash[:success]
           .form-group
-            label.control-label.col-md-02.col-sm-2.col-xs-12 for="title" 
-              | Title
+            label.control-label.col-md-02.col-sm-2.col-xs-12 for="product_name" 
+              | Name
               span.required *
             .col-md-9.col-sm-9.col-xs-12
-              = f.text_field :title, :class => "form-control col-md-7 col-xs-12", :id => "title"
+              = f.text_field :product_name, :class => "form-control col-md-7 col-xs-12", :id => "product_name"
           .form-group
-            label.control-label.col-md-2.col-sm-2.col-xs-12 for="slug" 
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="product_slug" 
               | Slug
               span.required *
             .col-md-9.col-sm-9.col-xs-12
-              = f.text_field :slug, :class => "form-control col-md-7 col-xs-12", :id => "slug"
+              = f.text_field :product_slug, :class => "form-control col-md-7 col-xs-12", :id => "product_slug"
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="price" 
+              | Price
+              span.required *
+            .col-md-9.col-sm-9.col-xs-12
+              = f.number_field :price, :class => "form-control col-md-7 col-xs-12", :id => "price"
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="quantity" 
+              | Quantity
+              span.required *
+            .col-md-9.col-sm-9.col-xs-12
+              = f.number_field :quantity, :class => "form-control col-md-7 col-xs-12", :id => "quantity"
           .form-group
             label.control-label.col-md-2.col-sm-2.col-xs-12 for="thumbnail" 
               | Thumbnail
@@ -43,15 +55,21 @@
             .col-md-9.col-sm-9.col-xs-12
               = f.file_field :thumbnail, multiple: false, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "thumbnail"
           .form-group
-            label.control-label.col-md-2.col-sm-2.col-xs-12 for="content" 
-              | Content
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="description" 
+              | Description
               span.required *
             .col-md-9.col-sm-9.col-xs-12
-              = f.text_area :content, :class => "form-control col-md-7 col-xs-12 froalaEditor", :id => "content"
+              = f.text_area :description, :class => "form-control col-md-7 col-xs-12 froalaEditor", :id => "description"
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="detail" 
+              | Detail
+              span.required *
+            .col-md-9.col-sm-9.col-xs-12
+              = f.text_area :detail, :class => "form-control col-md-7 col-xs-12 froalaEditor", :id => "detail"
           .form-group
             label.control-label.col-md-2.col-sm-2.col-xs-12 Active*
             .col-md-9.col-sm-9.col-xs-12
-              #post-active.btn-group data-toggle="buttons" 
+              #product-active.btn-group data-toggle="buttons" 
                 label.btn.btn-default data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" 
                   = f.radio_button :active, "publish", :checked => true
                   | &nbsp; Publish &nbsp;
@@ -63,7 +81,7 @@
               | Category
               span.required *
             .col-md-9.col-sm-9.col-xs-12
-              = f.collection_select :shop_category_id, Shop::Category.where(:category_type => "post"), :id, :category_name, { prompt: true }, { :class => "form-control col-md-7 col-xs-12", :id => "shop_category_id" }
+              = f.collection_select :shop_category_id, Shop::Category.where(:category_type => "product"), :id, :category_name, { prompt: true }, { :class => "form-control col-md-7 col-xs-12", :id => "shop_category_id" }
           .form-group
             label.control-label.col-md-2.col-sm-2.col-xs-12 for="keyword" 
               | Keyword
@@ -77,12 +95,17 @@
               span.required
             .col-md-9.col-sm-9.col-xs-12
               = f.fields_for :images do |k|
-                = render 'operators/posts/image_fields', f: k
+                = render 'operators/products/image_fields', f: k
               .add-image-link
                 = link_to_add_association 'Add a Image', f, :images
-                / = k.file_field :img_url, multiple: true, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "img_url"
+          .form-group
+            label.control-label.col-md-2.col-sm-2.col-xs-12 for="images" 
+            .col-md-9.col-sm-9.col-xs-12.img-collection
+              - @product.images.each do |img|
+                - if img.img_url
+                  = image_tag "/uploads/" + img.img_url
           .ln_solid
           .form-group
             .col-md-9.col-sm-9.col-xs-12.col-md-offset-5
-              = link_to "Cancel", operators_posts_path, class: "btn btn-primary"
-              = f.submit "Create", :class => "btn btn-success"
+              = link_to "Cancel", operators_products_path, class: "btn btn-primary"
+              = f.submit "Update", :class => "btn btn-success"

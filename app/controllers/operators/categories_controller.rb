@@ -46,7 +46,7 @@ class Operators::CategoriesController < Operators::BaseController
 	private
 		def get_categories
 			@q = Shop::Category.ransack(params[:q])
-  		@categories = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(10)
+  		@categories = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
 			# @categories = Shop::Category.all.order(created_at: :asc).page(params[:page]).per(10)
 		end
 

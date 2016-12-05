@@ -27,6 +27,7 @@
           .clearfix
           .form-group
             .col-md-12.col-sm-12.col-xs-12.text-center
+              = link_to "Cancel", operators_categories_path, :class => "btn btn-default"
               = f.submit "Search", class: "btn btn-default"
         p.col-sm-6
           | Catogories for 

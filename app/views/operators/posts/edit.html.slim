@@ -3,7 +3,7 @@
     .x_panel
       .x_title
         h2
-          | New Post
+          | Modify Post
           small Posts
         ul.nav.navbar-right.panel_toolbox
           li
@@ -15,7 +15,7 @@
         .clearfix
       .x_content
         br/
-        = form_for @post, :url => operators_posts_path, :method => "post", :html => { :multipart => true, :class => "form-horizontal form-label-left" } do |f|
+        = form_for @post, :url => operators_posts_update_path, :method => "put", :html => { :multipart => true, :class => "form-horizontal form-label-left" } do |f|
           - if @post.errors.any?
             ul
               - @post.errors.full_messages.each do |msg|
@@ -81,8 +81,14 @@
               .add-image-link
                 = link_to_add_association 'Add a Image', f, :images
                 / = k.file_field :img_url, multiple: true, accept: 'image/png,image/gif,image/jpeg', :class => "form-control col-md-7 col-xs-12", :id => "img_url"
+          .form-group
+          	label.control-label.col-md-2.col-sm-2.col-xs-12 for="images" 
+          	.col-md-9.col-sm-9.col-xs-12.img-collection
+              - @post.images.each do |img|
+                - if img.img_url
+                  = image_tag "/uploads/" + img.img_url
           .ln_solid
           .form-group
             .col-md-9.col-sm-9.col-xs-12.col-md-offset-5
               = link_to "Cancel", operators_posts_path, class: "btn btn-primary"
-              = f.submit "Create", :class => "btn btn-success"
+              = f.submit "Update", :class => "btn btn-success"

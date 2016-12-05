@@ -44,6 +44,8 @@ gem "wysiwyg-rails"
 gem 'dropzonejs-rails'
 gem "carrierwave"
 gem "cocoon"
+gem "hirb"
+gem "hirb-unicode"
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.9.0'

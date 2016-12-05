@@ -4,8 +4,8 @@
     .x_panel
       .x_title
         h2
-          | Posts
-          small Posts
+          | Products
+          small Products
         ul.nav.navbar-right.panel_toolbox
           li
             a.collapse-link
@@ -15,7 +15,7 @@
               i.fa.fa-close
         .clearfix
       .x_content
-        = search_form_for @q, url: operators_posts_path do |f|
+        / = search_form_for @q, url: operators_products_path do |f|
           .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
             = f.search_field :title_cont, class: "form-control has-feedback-left", placeholder: "Title"
             span.fa.fa-edit.form-control-feedback.left aria-hidden="true"
@@ -35,13 +35,13 @@
           .clearfix
           .form-group
             .col-md-12.col-sm-12.col-xs-12.text-center
-              = link_to "Cancel", operators_posts_path, :class => "btn btn-default"
+              = link_to "Cancel", operators_products_path, :class => "btn btn-default"
               = f.submit "Search", class: "btn btn-default"
         p.col-sm-6
-          | Posts for 
+          | Products for 
           code vensera
         p.col-sm-6.text-right
-          = link_to "Remove selected", operators_posts_delete_selected_path, method: :post, class: "text-danger delete_selected", data: { confirm: "Are you sure?" }
+          = link_to "Remove selected", operators_products_delete_selected_path, method: :product, class: "text-danger delete_selected", data: { confirm: "Are you sure?" }
         .clearfix
         p
           - if flash[:success]
@@ -53,31 +53,37 @@
               tr.headings
                 th
                   input#check-all.flat type="checkbox" /
-                th.column-title Title
+                th.column-title Name
                 th.column-title Slug
+                th.column-title Price
+                th.column-title Quantity
                 th.column-title Thumbnail
                 th.column-title Active
                 th.column-title Category
                 th.column-title Keyword
                 th.column-title.no-link.last.text-right
                   span.nobr Action
-                th.bulk-actions colspan="7" 
+                th.bulk-actions colspan="9" 
                   a.antoo style=("color:#fff; font-weight:500;") 
                     | Bulk Actions (
                     span.action-cnt
                     | ) 
                     i.fa.fa-chevron-down
             tbody
-              - @posts.each do |p|
+              - @products.each do |p|
                 tr.even.pointer
                   td.a-center
                     = check_box_tag "table_records", p.id, checked = false, class: "flat"
                   td 
-                    = p.title
+                    = p.product_name
                   td 
-                    = p.slug
+                    = p.product_slug
                   td 
-                    = image_tag "/uploads/" + p.thumbnail, size: "50x50", alt: p.title
+                    = p.price
+                  td 
+                    = p.quantity
+                  td 
+                    = image_tag "/uploads/" + p.thumbnail, size: "50x50", alt: p.product_name
                   td 
                     = p.active.to_s.capitalize
                   td 
@@ -89,7 +95,7 @@
                         option value=""
                           = key
                   td.last.text-right
-                    = link_to "Modify", operators_posts_edit_path(:id => p.id)
+                    = link_to "Modify", operators_products_edit_path(:id => p.id)
                     | &nbsp;
-                    = link_to " Remove", operators_posts_delete_path(:id => p.id), method: :delete, data: { confirm: "Are you sure?" }
-        = paginate @posts
+                    = link_to " Remove", operators_products_delete_path(:id => p.id), method: :delete, data: { confirm: "Are you sure?" }
+        = paginate @products
