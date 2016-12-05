@@ -15,23 +15,32 @@
               i.fa.fa-close
         .clearfix
       .x_content
-        / = search_form_for @q, url: operators_products_path do |f|
+        = search_form_for @q, url: operators_products_path do |f|
           .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
-            = f.search_field :title_cont, class: "form-control has-feedback-left", placeholder: "Title"
-            span.fa.fa-edit.form-control-feedback.left aria-hidden="true"
+            = f.search_field :product_name_cont, class: "form-control has-feedback-left", placeholder: "Name"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
           .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
-            = f.search_field :slug_cont, class: "form-control has-feedback-left", placeholder: "Slug"
-            span.fa.fa-edit.form-control-feedback.left aria-hidden="true"
+            = f.search_field :product_slug_cont, class: "form-control has-feedback-left", placeholder: "Slug"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
           .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
-            = f.search_field :content_cont, class: "form-control has-feedback-left", placeholder: "Content"
-            span.fa.fa-edit.form-control-feedback.left aria-hidden="true"
+            = f.search_field :description_cont, class: "form-control has-feedback-left", placeholder: "Description"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
+          .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+            = f.search_field :detail_cont, class: "form-control has-feedback-left", placeholder: "Detail"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
           .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
             = f.search_field :keyword_key_string_cont, class: "form-control has-feedback-left", placeholder: "Keyword"
-            span.fa.fa-edit.form-control-feedback.left aria-hidden="true"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
           .col-md-6.col-sm-6.col-xs-12.form-group
             = f.select :active_eq, { "Active" => "", "Publish" => "publish", "Pending" => "pending" }, {}, { class: "form-control" }
           .col-md-6.col-sm-6.col-xs-12.form-group
             = f.select :category_category_name_eq, @categories.collect { |c| [ c.category_name, c.category_name  ] }, { include_blank: 'Select Category' }, { class: "form-control" }
+          .col-md-3.col-sm-3.col-xs-6.form-group.has-feedback
+            = f.number_field :price_gteq, class: "form-control has-feedback-left", placeholder: "Minimum Price"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
+          .col-md-3.col-sm-3.col-xs-6.form-group.has-feedback
+            = f.number_field :price_lteq, class: "form-control has-feedback-left", placeholder: "Maximum Price"
+            span.fa.fa-shopping-bag.form-control-feedback.left aria-hidden="true"
           .clearfix
           .form-group
             .col-md-12.col-sm-12.col-xs-12.text-center
@@ -79,7 +88,7 @@
                   td 
                     = p.product_slug
                   td 
-                    = p.price
+                    = number_to_currency p.price, delimiter: ".", unit: "VNĐ", format: "%n %u", precision: 0
                   td 
                     = p.quantity
                   td 
@@ -89,11 +98,12 @@
                   td 
                     = p.category.category_name
                   td 
-                    - key_arr = p.keyword.key_string.split(/,/)
-                    select.tagcloud multiple="" 
-                      - key_arr.each do |key|
-                        option value=""
-                          = key
+                    - if p.keyword
+                      - key_arr = p.keyword.key_string.split(/,/)
+                      select.tagcloud multiple="" 
+                        - key_arr.each do |key|
+                          option value=""
+                            = key
                   td.last.text-right
                     = link_to "Modify", operators_products_edit_path(:id => p.id)
                     | &nbsp;

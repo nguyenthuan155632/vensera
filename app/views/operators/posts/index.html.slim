@@ -83,11 +83,12 @@
                   td 
                     = p.category.category_name
                   td 
-                    - key_arr = p.keyword.key_string.split(/,/)
-                    select.tagcloud multiple="" 
-                      - key_arr.each do |key|
-                        option value=""
-                          = key
+                    - if p.keyword
+                      - key_arr = p.keyword.key_string.split(/,/)
+                      select.tagcloud multiple="" 
+                        - key_arr.each do |key|
+                          option value=""
+                            = key
                   td.last.text-right
                     = link_to "Modify", operators_posts_edit_path(:id => p.id)
                     | &nbsp;
