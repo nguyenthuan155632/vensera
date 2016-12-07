@@ -3,7 +3,7 @@ section
     .row
       .col-sm-3
         = render 'shop/layouts/navigation'
-      .col-sm-9.padding-right
+      .col-sm-9
         .blog-post-area
           h2.title.text-center Latest From our Posts
           .single-blog-post
@@ -35,5 +35,78 @@ section
               = @post.content.html_safe
             .pager-area
               = link_to "Back", shop_posts_path, class: "post-show-back"
+        .rating-area
+          .col-sm-6.col-xs-12
+            ul.ratings
+              li.rate-this Rate number:
+              li
+                .posts-show-rating-2
+          .col-sm-6.col-xs-12
+            ul.tag
+              li TAG:
+              - tags = @post.keyword.key_string.split(',')
+              - tags.each do |t|
+                li
+                  = link_to "#{t}", "", class: "color"
+                  |  /
+        .response-area
+          h2 #{@comments.count} RESPONSES
+          ul.media-list
+            - @comments.each do |c|
+              li.media
+                .media-body
+                  ul.sinlge-post-meta
+                    li
+                      i.fa.fa-user
+                      = c.name
+                    li
+                      i.fa.fa-envelope
+                      = c.email
+                    li
+                      i.fa.fa-phone
+                      = c.phone
+                    li
+                      i.fa.fa-clock-o
+                      = c.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M%p")
+                    li
+                      i.fa.fa-calendar
+                      = c.created_at.in_time_zone("Asia/Bangkok").strftime("%b %d, %Y")
+                  p.m-b-0.p-l-5.p-r-5.t-justify
+                    = c.content
+        .replay-box
+          .row
+            .col-sm-4
+              h2 Leave a replay
+              form
+                .blank-arrow
+                  label Your Name
+                span
+                - if current_user
+                  input placeholder=("write your name...") type="text" value="#{current_user.name}" id="post_comment_name" /
+                - else
+                  input placeholder=("write your name...") type="text" id="post_comment_name" /
+                .blank-arrow
+                  label Email Address
+                span
+                - if current_user
+                  input placeholder=("your email address...") type="email" value="#{current_user.email}" id="post_comment_email" /
+                - else
+                  input placeholder=("your email address...") type="email" id="post_comment_email" /
+                .blank-arrow
+                  label Phone Number
+                - if current_user
+                  input placeholder=("current phone...") type="text" value="#{current_user.phone}" id="post_comment_phone" /
+                - else
+                  input placeholder=("current phone...") type="text" id="post_comment_phone" /
+            .col-sm-8
+              .text-area
+                .blank-arrow
+                  label Commment
+                span *
+                textarea id="post_comment" rows="11" value=""
+                .text-danger style="display: none" class="post_text_danger"
+                  | * Please input some comments
+                input.btn.btn-primary#send-comment value="post comment"
+
 
 

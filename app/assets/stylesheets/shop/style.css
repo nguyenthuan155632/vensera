@@ -54,10 +54,52 @@
     background: #5d5d5b;
     padding: 3px 25px;
     float: right;
+    margin-bottom: 20px;
+}
+
+.rating-area .ratings {
+    height: 27px;
+}
+
+.rating-area li.rate-this {
+    padding-left: 2px;
+}
+
+.border-alert {
+    border-color: red !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0px;
+}
+
+.p-l-5 {
+    padding-left: 5px;
+}
+
+.p-r-5 {
+    padding-right: 5px;
+}
+
+.t-justify {
+    text-align: justify;
+}
+
+.response-area .media {
+    padding-right: 0px;
 }
 
 @media only screen and (max-width:768px){
     .posts-index-rating {
         float: left;
+    }
+
+    .posts-show-rating {
+        float: left;
+    }
+
+    .rating-area .tag {
+        float: left;
+        padding-left: 0;
     }
 }

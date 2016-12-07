@@ -1,6 +1,7 @@
 class Shop::PostsController < Shop::BaseController
 	before_action :get_all_posts, only: [:index]
 	before_action :get_post, only: [:show]
+	before_action :get_comments, only: [:show]
 
 	def index
 	end
@@ -15,6 +16,15 @@ class Shop::PostsController < Shop::BaseController
 		end
 	end
 
+	def comments
+		name = params[:name]
+		email = params[:email]
+		phone = params[:phone]
+		comment = params[:comment]
+		cm = Shop::Comment.new({ content: comment, name: name, email: email, phone: phone, commentable_type: "Shop::Post", commentable_id: params[:id] })
+		cm.save
+	end
+
 	private
 		def get_all_posts
 			@posts = Shop::Post.where(:active => "publish").order(created_at: :desc).page(params[:page]).per(5)
@@ -22,5 +32,9 @@ class Shop::PostsController < Shop::BaseController
 
 		def get_post
 			@post = Shop::Post.where(:active => "publish").find(params[:id])
+		end
+
+		def get_comments
+			@comments = Shop::Comment.where(:commentable_id => params[:id]).order(created_at: :asc)
 		end
 end	
