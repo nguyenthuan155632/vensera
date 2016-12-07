@@ -1465,8 +1465,14 @@ h2.title {
   width: 100%;
 }
 
+.signup-form form input[type=radio] {
+  height: auto;
+  width: auto;
+}
+
 .login-form form span{
   line-height: 25px;
+  display: block;
 }
 
 .login-form form span input {

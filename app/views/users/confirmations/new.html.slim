@@ -1,0 +1,11 @@
+section#form
+  .container
+    .row
+      .col-sm-8.col-sm-offset-2.col-xs-12
+        .signup-form
+          h2 Resend confirmation instructions
+          = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+            = devise_error_messages!
+            = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email Address"
+            = f.submit "Resend confirmation instructions", class: "button btn btn-default submit-sign-up"
+        = render "users/shared/links"

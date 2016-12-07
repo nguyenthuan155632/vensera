@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations' }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', unlocks: 'users/unlocks', confirmations: 'users/confirmations', omniauth_callbacks: "users/omniauth_callbacks" }
 
   namespace :shop do
   	resources :posts, only: [:index, :show]
   	resources :products, only: [:index, :show]
+
+    post 'posts/likes' => 'posts#likes'
   end
 
   namespace :operators do

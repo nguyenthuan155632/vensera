@@ -1,1 +1,63 @@
-body {}
+.signup-form .btn-success {
+    color: #696763;
+    background-color: #f0f0e9;
+    border-color: #f0f0e9;
+}
+
+.signup-form .btn-danger {
+    color: #ffffff;
+    background-color: #fe980f;
+    border-color: #fe980f;
+}
+
+#error_explanation {
+	color: #a94442;
+}
+
+.submit-sign-up {
+	display: inline-block !important;
+	margin-right: 20px;
+	width: auto !important;
+}
+
+.submit-sign-up-face {
+	background: #3b5998;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    outline: medium none;
+}
+
+.post-meta ul li {
+    margin-bottom: 5px;
+}
+
+.posts-index-rating, .posts-show-rating {
+    float: right;
+}
+
+.post-index-title {
+    color: #696763;
+}
+
+.post-description, .post-content {
+    text-align: justify;
+}
+
+.post-show-back {
+    color: #fff;
+    background: #5d5d5b;
+    padding: 3px 25px;
+    float: right;
+}
+
+@media only screen and (max-width:768px){
+    .posts-index-rating {
+        float: left;
+    }
+}

@@ -1,7 +1,7 @@
 section#form
   .container
     .row
-      .col-sm-12
+      .col-sm-8.col-sm-offset-2.col-xs-12
         .login-form
           h2 Login to your account
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -15,5 +15,6 @@ section#form
               span
                 = f.check_box :remember_me, class: "checkbox"
                 = f.label :remember_me
-            = f.submit "Login", class: "button btn btn-default"
+            = f.submit "Login", class: "button btn btn-default submit-sign-up"
+            = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-default submit-sign-up-face"
         = render "users/shared/links"

@@ -1,14 +1,14 @@
 class VenseraPreview < ActionMailer::Preview
 
   def confirmation_instructions
-    VenseraMailer.confirmation_instructions(User.last, User.last.confirmation_token, {})
+    VenseraMailer.confirmation_instructions(User.find_by(:email => "nt.apple.it@gmail.com"), User.find_by(:email => "nt.apple.it@gmail.com").confirmation_token, {})
   end
 
   def reset_password_instructions
-    VenseraMailer.reset_password_instructions(User.last, User.last.reset_password_token, {})
+    VenseraMailer.reset_password_instructions(User.find_by(:email => "nt.apple.it@gmail.com"), User.find_by(:email => "nt.apple.it@gmail.com").reset_password_token, {})
   end
 
   def unlock_instructions
-    VenseraMailer.unlock_instructions(User.last, User.last.unlock_token, {})
+    VenseraMailer.unlock_instructions(User.find_by(:email => "nt.apple.it@gmail.com"), User.find_by(:email => "nt.apple.it@gmail.com").unlock_token, {})
   end
 end

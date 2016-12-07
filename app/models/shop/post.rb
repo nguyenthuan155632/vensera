@@ -15,6 +15,7 @@ class Shop::Post < ApplicationRecord
   validates :title, presence: true
 	validates :slug, presence: true, uniqueness: true
 	validates :thumbnail, presence: true
+  validates :description, presence: true
 	validates :content, presence: true
 	validates :shop_category_id, presence: true
 end

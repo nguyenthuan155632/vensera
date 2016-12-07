@@ -46,6 +46,7 @@ gem "carrierwave"
 gem "cocoon"
 gem "hirb"
 gem "hirb-unicode"
+gem 'omniauth-facebook'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.9.0'

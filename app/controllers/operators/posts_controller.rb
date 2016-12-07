@@ -109,6 +109,6 @@ class Operators::PostsController < Operators::BaseController
 		end
 
 		def shop_post_params
-      params.require(:shop_post).permit(:title, :slug, :thumbnail, :content, :active, :shop_category_id, keyword_attributes: [:key_string, :key_id, :key_type], images_attributes: [:id, :img_url, :imageable_id, :imageable_type, :_destroy])
+      params.require(:shop_post).permit(:title, :slug, :thumbnail, :description, :content, :active, :shop_category_id, keyword_attributes: [:key_string, :key_id, :key_type], images_attributes: [:id, :img_url, :imageable_id, :imageable_type, :_destroy])
     end
 end
