@@ -58,8 +58,14 @@ $(document).ready(function() {
             	comment: comment
             },
             success:function(data) {
-            	var new_comment = '<li class="media"><div class="media-body"><ul class="sinlge-post-meta"><li><i class="fa fa-user"></i>'+ name +'</li><li><i class="fa fa-envelope"></i>'+ email +'</li><li><i class="fa fa-phone"></i>'+ phone +'</li><li><i class="fa fa-clock-o"></i>05:56PM</li><li><i class="fa fa-calendar"></i>Dec 07, 2016</li></ul><p class="m-b-0 p-l-5 p-r-5 t-justify">'+ comment +'</p></div></li>';
+                var time = $('.post-show-time').val();
+                var date = $('.post-show-date').val();
+            	var new_comment = '<li class="media"><div class="media-body last-media-body"><ul class="sinlge-post-meta"><li><i class="fa fa-user"></i>'+ name +'</li><li><i class="fa fa-envelope"></i>'+ email +'</li><li><i class="fa fa-phone"></i>'+ phone +'</li><li><i class="fa fa-clock-o"></i>'+ time +'</li><li><i class="fa fa-calendar"></i>'+ date +'</li></ul><p class="m-b-0 p-l-5 p-r-5 t-justify">'+ comment +'</p></div></li>';
             	$('ul.media-list').append(new_comment);
+                var comment_counter = parseInt($('.post-show-comment-count').text()) + 1;
+                $('.post-show-comment-count').text(comment_counter);
+                $('.last-media-body').addClass('comment-ligher');
+                setInterval(function(){ $('.last-media-body').removeClass('comment-ligher'); }, 500);
 		    }
         });
 

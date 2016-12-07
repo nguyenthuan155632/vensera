@@ -9,6 +9,8 @@ section
           .single-blog-post
             h3 = @post.title
             = hidden_field_tag "post-show-id", "#{@post.id}", class: "post-show-id"
+            = hidden_field_tag "post-show-time", "#{@Time}", class: "post-show-time"
+            = hidden_field_tag "post-show-date", "#{@Date}", class: "post-show-date"
             - if @post.likes.count != 0
               - stars = (((@post.likes.inject(0) { |sum, l| sum + l.like_number }).to_f / (@post.likes.count).to_f) * 2).ceil.to_f / 2
             - else 
@@ -50,7 +52,9 @@ section
                   = link_to "#{t}", "", class: "color"
                   |  /
         .response-area
-          h2 #{@comments.count} RESPONSES
+          h2 
+            span.post-show-comment-count = @comments.count 
+            | &nbsp;RESPONSES
           ul.media-list
             - @comments.each do |c|
               li.media
