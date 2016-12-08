@@ -5,6 +5,13 @@ class Operators::BaseController < ActionController::Base
     redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 
+  before_action :comments_counter
+
 	layout 'operators/layouts/application'
+
+	def comments_counter
+		@post_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Post", :is_read => nil).count
+		@product_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Product", :is_read => nil).count
+	end
 
 end

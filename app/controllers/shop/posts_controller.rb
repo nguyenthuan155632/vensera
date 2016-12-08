@@ -35,7 +35,7 @@ class Shop::PostsController < Shop::BaseController
 		end
 
 		def get_comments
-			@comments = Shop::Comment.where(:commentable_id => params[:id]).order(created_at: :asc)
+			@comments = Shop::Comment.where(:commentable_type => "Shop::Post", :commentable_id => params[:id], :reply => nil).order(created_at: :asc)
 			@Time = Time.now.in_time_zone("Asia/Bangkok").strftime("%I:%M%p")
 			@Date = Time.now.in_time_zone("Asia/Bangkok").strftime("%b %d, %Y")
 		end

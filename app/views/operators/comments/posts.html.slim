@@ -1,0 +1,82 @@
+.row
+  .col-md-12
+    .x_panel
+      .x_title
+        h2
+          | Comments
+          small Posts
+        ul.nav.navbar-right.panel_toolbox
+          li
+            a.collapse-link
+              i.fa.fa-chevron-up
+          li
+            a.close-link
+              i.fa.fa-close
+        .clearfix
+      .x_content
+        .row
+          .col-sm-3.mail_list_column
+            - @post_comments.each do |comment|
+              a href="#" 
+              .mail_list
+                = hidden_field_tag "", "#{comment.id}", class: "comment-id"
+                .left
+                  i.fa.fa-circle style="display: none;"
+                .right
+                  h3
+                    - unless comment.name.blank?
+                      - unless comment.is_read
+                        = comment.name
+                      - else 
+                        span style="font-weight: normal;"
+                          = comment.name
+                    - else
+                      - unless comment.is_read
+                        | Anonymous
+                      - else 
+                        span style="font-weight: normal;"
+                          | Anonymous
+                    small
+                      = comment.created_at.in_time_zone("Asia/Bangkok").strftime("%I.%M %p")
+                  p = comment.commentable.title
+          .col-sm-9.mail_view
+            .inbox-body
+              .mail_heading.row
+                .col-md-8
+                  .btn-group
+                    button.btn.btn-sm.btn-primary#compose type="button" 
+                      i.fa.fa-reply
+                      | Reply
+                    button.btn.btn-sm.btn-default#delete_comment data-original-title="Trash" data-placement="top" data-toggle="tooltip" type="button" 
+                      i.fa.fa-trash-o
+                    input type="hidden" id="id_hidden_selected" value="0"
+                    input type="hidden" id="id_hidden_selected_type" value="0"
+                    input type="hidden" id="id_hidden_selected_type_2" value="0"
+                .col-md-4.text-right
+                  p.date 
+                    span#post-comment-time
+                      | 00:01 AM 
+                    span#post-comment-date
+                      | 01 JAN 2017
+                .col-md-12
+                  h4#post-comment-title Title
+              .sender-info
+                .row
+                  .col-md-12
+                    #post-comment-name 
+                      strong
+                        | Name - Email - Phone
+              .view-mail#post-comment-content
+                | Comment
+
+.compose.col-md-6.col-xs-12
+  .compose-header
+    | New Message
+    button.close.compose-close type="button" 
+      span ×
+  .compose-body
+    #alerts
+    #editor.editor-wrapper contenteditable=""
+  .compose-footer
+    button#send.btn.btn-sm.btn-success.reply_comment type="button"  Send
+

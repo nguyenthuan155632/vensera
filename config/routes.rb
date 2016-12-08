@@ -37,6 +37,13 @@ Rails.application.routes.draw do
     delete 'products/:id' => 'products#destroy', as: "products_delete"
     post 'products/delete_selected' => 'products#delete_selected', as: "products_delete_selected"
 
+    get 'comments' => 'comments#index'
+    get 'comments/products' => 'comments#products'
+    get 'comments/posts' => 'comments#posts'
+    post 'comments/get' => 'comments#get_comment'
+    post 'comments/delete' => 'comments#delete_comment'
+    post 'comments/reply' => 'comments#reply_comment'
+
   	root to: 'home#index'
   end
 

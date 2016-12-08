@@ -87,14 +87,11 @@
 
 .response-area .media {
     padding-right: 0px;
+    font-style: italic;
 }
 
 .sinlge-post-meta li {
     margin-bottom: 5px;
-}
-
-.comment-ligher {
-    background-color: #f0f0e9;
 }
 
 @media only screen and (max-width:768px){

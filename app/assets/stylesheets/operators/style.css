@@ -52,3 +52,26 @@
 }
 
 .tc-selected { background: #ec5f65; }
+
+.mail_list {
+    cursor: pointer;
+}
+
+.font-normal {
+    font-weight: normal !important;
+}
+
+.notification-post-comment,
+.notification-product-comment {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    background-color: #1abb9c;
+    border-radius: 12px;
+    padding-top: 3px;
+    height: 20px;
+    color: #fff;
+    width: 20px;
+    text-align: center;
+    font-size: 10px;
+}

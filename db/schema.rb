@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207101047) do
+ActiveRecord::Schema.define(version: 20161208071039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20161207101047) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.boolean  "is_read"
+    t.integer  "reply"
     t.index ["commentable_type", "commentable_id"], name: "index_shop_comments_on_commentable_type_and_commentable_id", using: :btree
   end
 

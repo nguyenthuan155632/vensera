@@ -13,6 +13,7 @@
  * require jquery-ui
  * require jquery-ui/datepicker
  *= require shop/bootstrap.min
+ *= require froala_style.min.css
  *= require_tree .
  *= require_self
  */

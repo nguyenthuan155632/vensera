@@ -23,7 +23,7 @@ section
                   = @post.category.category_name
                 li
                   i.fa.fa-clock-o
-                  = @post.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M%p")
+                  = @post.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M %p")
                 li
                   i.fa.fa-calendar
                   = @post.created_at.in_time_zone("Asia/Bangkok").strftime("%b %d, %Y")
@@ -33,7 +33,7 @@ section
             .post-description
               = @post.description
             br/
-            .post-content
+            .post-content.fr-view
               = @post.content.html_safe
             .pager-area
               = link_to "Back", shop_posts_path, class: "post-show-back"
@@ -71,12 +71,28 @@ section
                       = c.phone
                     li
                       i.fa.fa-clock-o
-                      = c.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M%p")
+                      = c.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M %p")
                     li
                       i.fa.fa-calendar
                       = c.created_at.in_time_zone("Asia/Bangkok").strftime("%b %d, %Y")
                   p.m-b-0.p-l-5.p-r-5.t-justify
                     = c.content
+              - reply = Shop::Comment.where(:reply => c.id)
+              - reply.each do |r|
+                li.media.second-media
+                  .media-body
+                    ul.sinlge-post-meta
+                      li style="color: #c44438;"
+                        i.fa.fa-user
+                        | Administrator
+                      li
+                        i.fa.fa-clock-o
+                        = r.created_at.in_time_zone("Asia/Bangkok").strftime("%I:%M %p")
+                      li
+                        i.fa.fa-calendar
+                        = r.created_at.in_time_zone("Asia/Bangkok").strftime("%b %d, %Y")
+                    p.m-b-0.p-l-5.p-r-5.t-justify
+                      = r.content
         .replay-box
           .row
             .col-sm-4
