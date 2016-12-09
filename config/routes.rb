@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   	resources :products, only: [:index, :show]
 
     post 'posts/likes' => 'posts#likes'
+    post 'products/likes' => 'products#likes'
     post 'posts/comments' => 'posts#comments'
   end
 

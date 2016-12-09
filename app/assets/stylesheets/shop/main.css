@@ -850,10 +850,16 @@ h2.title {
 	border:1px solid #F7F7F5;
 	overflow: hidden;
 	margin-bottom:30px;
+  height: 394px;
 }
 
 .single-products {
   position: relative;
+  height: 335px;
+}
+
+.product-image-container {
+  height: 191px;
 }
 
 .new, .sale {
@@ -884,7 +890,8 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  width: auto;
+  max-height: 191px;
 }
 
 .productinfo{
@@ -997,16 +1004,16 @@ h2.title {
   overflow: hidden;
 }
 
-.category-tab ul {
+.category-tab ul.menu-cate {
   background: #40403E;
   border-bottom: 1px solid #FE980F;
   list-style: none outside none;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   padding: 0;
   width: 100%;
 }
 
-.category-tab ul li a {
+.category-tab ul.menu-cate li a {
   border: 0 none;
   border-radius: 0;
   color: #B3AFA8;
@@ -1016,7 +1023,7 @@ h2.title {
   text-transform: uppercase;
 }
 
-.category-tab ul  li  a:hover{
+.category-tab ul.menu-cate  li  a:hover{
 	background:#FE980F;
 	color:#fff;
 }
@@ -1028,7 +1035,7 @@ h2.title {
   -moz-border-top-colors: none;
   background-color: #FE980F;
   border:0px;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   cursor: default;
   margin-right:0;
   margin-left:0;
@@ -1249,9 +1256,8 @@ h2.title {
   margin-top: 18px;
 }
 
-.product-information span span {
+.product-information .product-price {
   color: #FE980F;
-  float: left;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
   font-weight: 700;

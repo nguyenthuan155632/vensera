@@ -10,8 +10,8 @@ class Operators::BaseController < ActionController::Base
 	layout 'operators/layouts/application'
 
 	def comments_counter
-		@post_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Post", :is_read => nil).count
-		@product_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Product", :is_read => nil).count
+		@post_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Post", :is_read => nil, :reply => nil).count
+		@product_comment_counter = Shop::Comment.where(:commentable_type => "Shop::Product", :is_read => nil, :reply => nil).count
 	end
 
 end
