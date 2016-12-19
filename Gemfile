@@ -48,6 +48,8 @@ gem "hirb"
 gem "hirb-unicode"
 gem 'omniauth-facebook'
 gem "net-ssh"
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
 # gem 'capistrano'
 # gem 'mini_magick'
 # gem 'carrierwave'
