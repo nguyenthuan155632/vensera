@@ -25,8 +25,8 @@ development:
   <<: *default
   database: vensera_development
   host: localhost
-  # username: vensera
-  # password: 155632
+  username: vensera
+  password: 155632
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
