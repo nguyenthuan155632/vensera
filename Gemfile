@@ -47,6 +47,7 @@ gem "cocoon"
 gem "hirb"
 gem "hirb-unicode"
 gem 'omniauth-facebook'
+gem 'capistrano'
 # gem 'mini_magick'
 # gem 'carrierwave'
 # gem 'ckeditor'
