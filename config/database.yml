@@ -24,7 +24,6 @@ default: &default
 development:
   <<: *default
   database: vensera_development
-  host: localhost
   username: vensera
   password: 155632
 
@@ -61,6 +60,8 @@ development:
 test:
   <<: *default
   database: vensera_test
+  username: vensera
+  password: 155632
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
