@@ -50,12 +50,12 @@
 # The server-based syntax can be used to override options:
 # ------------------------------------
  server "ec2-35-164-240-210.us-west-2.compute.amazonaws.com",
-   user: "ec2_user",
+   user: "ec2-user",
    roles: %w{web app},
    ssh_options: {
-     user: "ec2_user", # overrides user setting above
-     keys: %w(/home/ec2_user/.ssh/shopping_cart.pem),
-     forward_agent: false,
-     # auth_methods: %w(publickey password)
+     user: "ec2-user", # overrides user setting above
+     keys: %w(/home/ec2-user/.ssh/shopping_cart.pem),
+     forward_agent: true,
+     # auth_methods: %w(publickey)
      # password: "please use keys"
    }
