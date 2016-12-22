@@ -54,6 +54,13 @@ gem 'therubyracer', :platforms => :ruby
 # gem 'mini_magick'
 # gem 'carrierwave'
 # gem 'ckeditor'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+gem 'sidekiq'
+gem 'sidekiq_monitor'
+gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.9.0'
@@ -68,6 +75,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'bullet'
+  gem 'faker'
 end
 
 group :development do

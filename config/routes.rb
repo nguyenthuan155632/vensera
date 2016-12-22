@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   end
 
   get 'contact' => 'shop/contact#index'
+  mount Sidekiq::Monitor::Engine => '/sidekiq'
 
   root to: 'shop/home#index'
 end

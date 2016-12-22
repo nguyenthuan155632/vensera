@@ -1,4 +1,6 @@
 class Shop::PostsController < Shop::BaseController
+	# include Shop::PostsHelper
+	
 	before_action :get_all_posts, only: [:index]
 	before_action :get_post, only: [:show]
 	before_action :get_comments, only: [:show]

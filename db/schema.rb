@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208071039) do
+ActiveRecord::Schema.define(version: 20161222093427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,28 @@ ActiveRecord::Schema.define(version: 20161208071039) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["shop_category_id"], name: "index_shop_products_on_shop_category_id", using: :btree
+  end
+
+  create_table "sidekiq_jobs", force: :cascade do |t|
+    t.string   "jid"
+    t.string   "queue"
+    t.string   "class_name"
+    t.text     "args"
+    t.boolean  "retry"
+    t.datetime "enqueued_at"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.string   "status"
+    t.string   "name"
+    t.text     "result"
+    t.index ["class_name"], name: "index_sidekiq_jobs_on_class_name", using: :btree
+    t.index ["enqueued_at"], name: "index_sidekiq_jobs_on_enqueued_at", using: :btree
+    t.index ["finished_at"], name: "index_sidekiq_jobs_on_finished_at", using: :btree
+    t.index ["jid"], name: "index_sidekiq_jobs_on_jid", using: :btree
+    t.index ["queue"], name: "index_sidekiq_jobs_on_queue", using: :btree
+    t.index ["retry"], name: "index_sidekiq_jobs_on_retry", using: :btree
+    t.index ["started_at"], name: "index_sidekiq_jobs_on_started_at", using: :btree
+    t.index ["status"], name: "index_sidekiq_jobs_on_status", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
