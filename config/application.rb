@@ -16,5 +16,7 @@ module Vensera
 
     config.eager_load_paths += ["#{config.root}/app/workers"]
     config.autoload_paths += ["#{config.root}/app/workers"]
+
+    config.autoload_paths << Rails.root.join('lib')
   end
 end

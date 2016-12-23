@@ -61,6 +61,10 @@ gem 'redis-rack-cache'
 gem 'sidekiq'
 gem 'sidekiq_monitor'
 gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+# gem 'versionist'
+# gem 'grape'
+# gem 'rails-api'
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'coffee-script-source', '1.9.0'
@@ -76,6 +80,8 @@ group :development, :test do
   gem 'meta_request'
   gem 'bullet'
   gem 'faker'
+  gem "factory_girl_rails"
+  gem 'ffaker'
 end
 
 group :development do
