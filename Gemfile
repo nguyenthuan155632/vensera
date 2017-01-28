@@ -67,7 +67,7 @@ gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-gem 'coffee-script-source', '1.9.0'
+gem 'coffee-script-source', '1.8.0'
 
 
 group :development, :test do
