@@ -49,9 +49,9 @@ class Operators::PostsController < Operators::BaseController
 
 	def update
 		images_attr = params[:shop_post][:images_attributes]
-		if params[:shop_post][:thumbnail].present?
-			upload_thumnail = params[:shop_post][:thumbnail]
-		end
+		# if params[:shop_post][:thumbnail].present?
+		# 	upload_thumnail = params[:shop_post][:thumbnail]
+		# end
 		img = []
 		images_attr.each do |k, v|
 			if v[:img_url].present?
@@ -59,16 +59,16 @@ class Operators::PostsController < Operators::BaseController
 				params[:shop_post][:images_attributes][k][:img_url] = params[:shop_post][:images_attributes][k][:img_url].original_filename
 			end
 		end
-		if params[:shop_post][:thumbnail].present?
-			params[:shop_post][:thumbnail] = params[:shop_post][:thumbnail].original_filename
-		end
+		# if params[:shop_post][:thumbnail].present?
+		# 	params[:shop_post][:thumbnail] = params[:shop_post][:thumbnail].original_filename
+		# end
 
     if @post.update_attributes(shop_post_params)
-    	if params[:shop_post][:thumbnail].present?
-    		File.open(Rails.root.join('public', 'uploads', upload_thumnail.original_filename), 'wb') do |file|
-			  	file.write(upload_thumnail.read)
-				end
-			end  
+   #  	if params[:shop_post][:thumbnail].present?
+   #  		File.open(Rails.root.join('public', 'uploads', upload_thumnail.original_filename), 'wb') do |file|
+			#   	file.write(upload_thumnail.read)
+			# 	end
+			# end  
 			img.each do |f|
 				File.open(Rails.root.join('public', 'uploads', f.original_filename), 'wb') do |files|
 				  files.write(f.read)
