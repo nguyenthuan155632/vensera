@@ -54,7 +54,7 @@
    roles: %w{web app},
    ssh_options: {
      user: "ubuntu", # overrides user setting above
-     keys: %w(/home/ubuntu/.ssh/deploy_aws_ror.pem),
+     keys: %w(C:/deploy_aws_ror.pem),
      forward_agent: true,
      # auth_methods: %w(publickey)
      # password: "please use keys"
