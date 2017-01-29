@@ -10,13 +10,11 @@ class Shop::Post < ApplicationRecord
   accepts_nested_attributes_for :likes, :allow_destroy => true
   accepts_nested_attributes_for :keyword, :allow_destroy => true
 
-  has_attached_file :thumbnail, styles: { small: "200x150", med: "400x300", large: "800x600" }
-
   # default_scope { where(active: "publish") }
 
   validates :title, presence: true
 	validates :slug, presence: true, uniqueness: true
-	validates :thumbnail, attachment_presence: true
+	validates :thumbnail, presence: true
   validates :description, presence: true
 	validates :content, presence: true
 	validates :shop_category_id, presence: true
