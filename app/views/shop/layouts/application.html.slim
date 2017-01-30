@@ -73,13 +73,15 @@ html lang="en"
                 ul.nav.navbar-nav
                   - unless user_signed_in?
                     li
-                      a href="checkout.html" 
+                      a href="#" 
                         i.fa.fa-crosshairs
                         | Checkout
                     li
-                      a href="cart.html" 
+                      a href="#" 
                         i.fa.fa-shopping-cart
                         | Cart
+                    li
+                      = link_to "#{current_order.order_items.size} ( #{number_to_currency current_order.subtotal} )", shop_cart_path, class: "btn btn-link"
                     li
                       = link_to new_user_registration_path
                         i.fa.fa-user

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   namespace :shop do
   	resources :posts, only: [:index, :show]
   	resources :products, only: [:index, :show]
+    resource :cart, only: [:show]
+    resources :order_items, only: [:create, :update, :destroy]
 
     post 'posts/likes' => 'posts#likes'
     post 'products/likes' => 'products#likes'
