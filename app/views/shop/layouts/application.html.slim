@@ -81,7 +81,7 @@ html lang="en"
                         i.fa.fa-shopping-cart
                         | Cart
                     li
-                      = link_to "#{current_order.order_items.size} ( #{number_to_currency current_order.subtotal} )", shop_cart_path, class: "btn btn-link"
+                      = render 'shop/layouts/cart_text'
                     li
                       = link_to new_user_registration_path
                         i.fa.fa-user
