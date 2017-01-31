@@ -7,35 +7,8 @@ section
       .col-sm-9.padding-right
         .features_items
           h2.title.text-center Products
-          - @products.each do |p|
-            .col-sm-4
-              .product-image-wrapper
-                .single-products
-                  .productinfo.text-center
-                    .product-image-container
-                      = image_tag '/uploads/' + p.thumbnail, alt: "#{p.product_name}"
-                    h2 = number_to_currency p.price, delimiter: ".", unit: "VNĐ", format: "%n %u", precision: 0
-                    p = p.product_name
-                    a.btn.btn-default.add-to-cart href="#" 
-                      i.fa.fa-shopping-cart
-                      | Add to cart
-                  .product-overlay
-                    .overlay-content
-                      h2 = number_to_currency p.price, delimiter: ".", unit: "VNĐ", format: "%n %u", precision: 0
-                      p = p.product_name
-                      a.btn.btn-default.add-to-cart href="#" 
-                        i.fa.fa-shopping-cart
-                        | Add to cart
-                .choose
-                  ul.nav.nav-pills.nav-justified
-                    li
-                      a href="" 
-                        i.fa.fa-plus-square
-                        | Add to wishlist
-                    li
-                      = link_to shop_product_path(p)
-                        i.fa.fa-list-alt
-                        | Product details
+          - @products.each do |product|
+            = render 'shop/products/product_row', product: product, order_item: @order_item
           .clearfix
           = paginate @products
 

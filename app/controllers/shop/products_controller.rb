@@ -4,6 +4,7 @@ class Shop::ProductsController < Shop::BaseController
 	before_action :get_comments, only: [:show]
 
 	def index
+		@order_item = current_order.order_items.new
 	end
 
 	def show
@@ -34,7 +35,7 @@ class Shop::ProductsController < Shop::BaseController
 			@product = Shop::Product.where(:active => "publish").find(params[:id])
 			@random_product_1 = Shop::Product.limit(3).order("RANDOM()")
 			@random_product_2 = Shop::Product.limit(3).where(:shop_category_id => @product.shop_category_id).order("RANDOM()")
-			# @random_product_3 = Shop::Product.where(:shop_category_id => @product.shop_category_id).limit(3).order("RANDOM()")
+			# @random_pr oduct_3 = Shop::Product.where(:shop_category_id => @product.shop_category_id).limit(3).order("RANDOM()")
 		end
 
 		def get_comments

@@ -6,7 +6,7 @@ class Shop::BaseController < ActionController::Base
 	helper_method :current_order
 
   def current_order
-    if !session[:order_id].nil?
+    unless session[:order_id].nil?
       Shop::Order.find(session[:order_id])
     else
       Shop::Order.new

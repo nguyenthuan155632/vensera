@@ -1,0 +1,29 @@
+= form_for order_item, remote: true do |f|
+  = f.hidden_field :shop_product_id, value: product.id
+  .col-sm-4
+    .product-image-wrapper
+      .single-products
+        .productinfo.text-center
+          .product-image-container
+            = image_tag '/uploads/' + product.thumbnail, alt: "#{product.product_name}"
+          h2 = number_to_currency product.price, delimiter: ".", unit: "VNĐ", format: "%n %u", precision: 0
+          a.btn.btn-default.add-to-cart href="#" 
+            i.fa.fa-shopping-cart
+            | Add to cart
+        .product-overlay
+          .overlay-content
+            h2 = number_to_currency product.price, delimiter: ".", unit: "VNĐ", format: "%n %u", precision: 0
+            = f.submit "Add to Cart", class: "btn btn-default add-to-cart"
+            a.btn.btn-default.add-to-cart href="#" 
+              i.fa.fa-shopping-cart
+              | Add to cart
+      .choose
+        ul.nav.nav-pills.nav-justified
+          li
+            a href="" 
+              i.fa.fa-plus-square
+              | Wishlist
+          li
+            = link_to shop_product_path(product)
+              i.fa.fa-list-alt
+              | Details

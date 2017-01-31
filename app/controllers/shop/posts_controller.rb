@@ -6,7 +6,6 @@ class Shop::PostsController < Shop::BaseController
 	before_action :get_comments, only: [:show]
 
 	def index
-		@order_item = current_order.order_items.new
 	end
 
 	def show
