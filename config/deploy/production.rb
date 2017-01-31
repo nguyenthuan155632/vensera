@@ -59,3 +59,13 @@
      # auth_methods: %w(publickey)
      # password: "please use keys"
    }
+  # server "ec2-54-202-189-119.us-west-2.compute.amazonaws.com",
+  #  user: "ec2-user",
+  #  roles: %w{web app},
+  #  ssh_options: {
+  #    user: "ec2-user", # overrides user setting above
+  #    keys: %w(C:/deploy_aws_ror.pem),
+  #    forward_agent: true,
+  #    # auth_methods: %w(publickey)
+  #    # password: "please use keys"
+  #  }
