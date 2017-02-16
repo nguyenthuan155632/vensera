@@ -15,11 +15,11 @@ Things you may want to cover:
     
 * Configuration
 
-* Database creation
-  RDS:
-    mysqlinstance.c0mbfmyufmzf.us-west-2.rds.amazonaws.com
-    username: vensera
-    password: 15**********f0
+* Database creation<br/>
+  RDS:<br/>
+    mysqlinstance.c0mbfmyufmzf.us-west-2.rds.amazonaws.com<br/>
+    username: vensera<br/>
+    password: 15**********f0<br/>
     
 * Database initialization
   RAILS_ENV=production rake db:cr
