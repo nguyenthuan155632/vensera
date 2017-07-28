@@ -1,4 +1,4 @@
-lock '3.7.1'
+lock '3.8.2'
  
 set :application, 'vensera'
 set :repo_url, 'git@github.com:nguyenthuan155632/vensera.git'
